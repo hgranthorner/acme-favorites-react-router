@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
+    "heroku-postinstall": "webpack",
     "build": "webpack -w",
     "start:dev": "npm run build & DATABASE_URL=postgresql://localhost/acme-favorites-db nodemon server.js --ignore ./src --ignore ./dist"
   },
