@@ -3,14 +3,20 @@ const path = require('path')
 module.exports = {
   mode: 'production',
   entry: path.join(__dirname, 'src'),
-  output; path.join(__dirname, 'dist'),
-  filename: 'bundle.js',
-  module: {
-    loader: 'babel-loader',
-    options: {
-      presets: ['es2015']
-    }
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
-  devtool: 'source-map',
-  externals: ['react']
+  module: {
+    rules: [
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      }
+    ]
+  },
+  devtool: 'source-map'
 }

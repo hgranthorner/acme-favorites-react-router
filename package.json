@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "webpack": "webpack",
+    "build": "webpack -w",
+    "start:dev": "npm run build & DATABASE_URL=postgresql://localhost/acme-favorites-db nodemon server.js --ignore ./src --ignore ./dist"
   },
   "keywords": [],
   "author": "Grant Horner",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "express": "^4.16.4",
     "pg": "^7.8.2",
