@@ -1,0 +1,26 @@
+{
+  "name": "acme-favorites",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Grant Horner",
+  "license": "ISC",
+  "dependencies": {
+    "babel-loader": "^8.0.5",
+    "express": "^4.16.4",
+    "pg": "^7.8.2",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "sequelize": "^4.43.0",
+    "ts-loader": "^5.3.3",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "devDependencies": {
+    "ts-node": "^8.0.3"
+  }
+}
