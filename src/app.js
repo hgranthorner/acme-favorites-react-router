@@ -7,16 +7,12 @@ const App = () => {
   const [users, setUsers] = useState([])
   const [things, setThings] = useState([])
 
-  const compare = (a, b) => {
-    if (a.favorite) return a.favorite.rank < b.favorite.rank ? -1 : 1
-  }
-
   useEffect(() => {
     axios
       .get('/users')
       .then(response => setUsers(response.data))
       .then(() => axios.get('/things'))
-      .then(response => setThings(response.data.sort((a, b) => compare(a, b))))
+      .then(response => setThings(response.data))
       .catch(e => console.error(e))
   }, [])
 

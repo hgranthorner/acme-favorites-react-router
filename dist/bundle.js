@@ -31280,19 +31280,13 @@ var App = function App() {
       things = _useState4[0],
       setThings = _useState4[1];
 
-  var compare = function compare(a, b) {
-    if (a.favorite) return a.favorite.rank < b.favorite.rank ? -1 : 1;
-  };
-
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/users').then(function (response) {
       return setUsers(response.data);
     }).then(function () {
       return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get('/things');
     }).then(function (response) {
-      return setThings(response.data.sort(function (a, b) {
-        return compare(a, b);
-      }));
+      return setThings(response.data);
     }).catch(function (e) {
       return console.error(e);
     });
@@ -31437,7 +31431,9 @@ var Users = function Users(_ref) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, users.map(function (user) {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       key: user.id
-    }, user.name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, user.favorites.map(function (favorite) {
+    }, user.name, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, user.favorites.sort(function (a, b) {
+      return a.rank < b.rank ? -1 : 1;
+    }).map(function (favorite) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         key: favorite.id
       }, favorite.thing.name, " (Ranked: ", favorite.rank, ")");
